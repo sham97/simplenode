@@ -22,10 +22,10 @@ jobs:
       id: npm_cache_id
       with:
           path: node_modules
-          key: ${{ runner.os }}-stg-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-prod-npm-cache-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-stg-npm-cache
-            ${{ runner.os }}-stg
+            ${{ runner.os }}-prod-npm-cache
+            ${{ runner.os }}-prod
     - name: Install Dependencies
       if: steps.npm_cache_id.outputs.cache-hit != 'true'
       run: npm ci
