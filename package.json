@@ -1,0 +1,19 @@
+{
+  "name": "simplenode",
+  "version": "1.0.0",
+  "description": "sample node js application",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sham97/simplenode.git"
+  },
+  "author": "illthizam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sham97/simplenode/issues"
+  },
+  "homepage": "https://github.com/sham97/simplenode#readme"
+}
