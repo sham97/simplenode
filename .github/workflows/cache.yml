@@ -26,4 +26,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-prod-npm-cache
             ${{ runner.os }}-prod
-    
+    - name: Install Dependencies
+      if: steps.npm_cache_id.outputs.cache-hit != 'true'
+      run: npm ci
+
