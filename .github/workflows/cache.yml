@@ -1,7 +1,7 @@
 name: GitHub Actions Workflow with NPM cache
 
 on: push
-
+#job
 jobs:
   build:
 
@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Cache NPM dependencies
+    - name: Cache npm dependencies
       uses: actions/setup-node@v3
       with:
           node-version: ${{matrix.node-version}}
@@ -22,11 +22,10 @@ jobs:
       id: npm_cache_id
       with:
           path: node_modules
-          key: ${{ runner.os }}-prod-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-stg-npm-cache-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-prod-npm-cache
-            ${{ runner.os }}-prod
+            ${{ runner.os }}-stg-npm-cache
+            ${{ runner.os }}-stg
     - name: Install Dependencies
       if: steps.npm_cache_id.outputs.cache-hit != 'true'
-      run: npm i
-
+      run: npm ci
